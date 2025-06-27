@@ -22,6 +22,24 @@ This API allows you to send notifications via email using SMTP. Below are the in
 }
 ```
 
+#### Example using aiohttp to interact with API
+
+```python
+import aiohttp
+import asyncio
+
+async def send_email():
+    async with aiohttp.ClientSession() as session:
+        async with session.post('http://localhost:8080/send-email', json={
+            'to': 'recipient@example.com',
+            'subject': 'Your Subject',
+            'body': 'Email body content'
+        }) as response:
+            print(await response.text())
+
+asyncio.run(send_email())
+```
+
 #### Example curl
 
 ```bash
@@ -33,6 +51,18 @@ curl -X POST \
     "subject": "Your Subject",
     "body": "Email body content"
   }'
+```
+
+## Healthcheck Endpoint
+
+- **URL:** `/healthcheck`
+- **Method:** GET
+- **Description:** This endpoint is used to verify that the service is running and healthy. It returns a simple status message indicating the health of the service.
+
+#### Example curl healthcheck
+
+```bash
+curl -X GET http://localhost:8080/healthcheck
 ```
 
 ## Error Handling

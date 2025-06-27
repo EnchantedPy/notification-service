@@ -1,7 +1,7 @@
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
-from models import Email
-from smtp.mailer import EmailSender
+from notification.models import Email
+from notification.mailer import EmailSender
 from contextlib import asynccontextmanager
 from aiosmtplib.errors import SMTPException
 

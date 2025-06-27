@@ -1,8 +1,8 @@
-from smtp.base import NotificationSender
+from notification.base import NotificationSender
 from email.message import EmailMessage
 import aiosmtplib
 from core.config import settings
-from models import Email
+from notification.models import Email
 
 class EmailSender(NotificationSender):
 	async def send(self, email: Email) -> None:
