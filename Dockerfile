@@ -1,6 +1,6 @@
 FROM python:3.12
 
-WORKDIR /service
+WORKDIR /app
 
 RUN pip install  --upgrade pip && pip install aiosmtplib pydantic[email] fastapi uvicorn
 

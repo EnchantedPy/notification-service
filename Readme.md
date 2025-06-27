@@ -8,7 +8,7 @@ This API allows you to send notifications via email using SMTP. Below are the in
 
 ### Send Email
 
-- **URL:** `/send-email`
+- **URL:** `/send/email`
 - **Method:** POST
 - **Description:** Sends an email notification.
 
@@ -30,7 +30,7 @@ import asyncio
 
 async def send_email():
     async with aiohttp.ClientSession() as session:
-        async with session.post('http://localhost:8080/send-email', json={
+        async with session.post('http://localhost:8080/send/email', json={
             'to': 'recipient@example.com',
             'subject': 'Your Subject',
             'body': 'Email body content'
@@ -44,7 +44,7 @@ asyncio.run(send_email())
 
 ```bash
 curl -X POST \
-  http://localhost:8080/send-email \
+  http://localhost:8080/send/email \
   -H 'Content-Type: application/json' \
   -d '{
     "to": "recipient@example.com",
